@@ -6,7 +6,13 @@ screen = Screen()
 screen.setup(500, 500)
 screen.tracer(0)
 
-board = Board()
+board = Board(screen)
+
+screen.listen()
+screen.onkeypress(fun=board.go_up, key='Up')
+# screen.onkeypress(fun=board.go_down, key='Down')
+# screen.onkeypress(fun=board.go_down, key='Left')
+# screen.onkeypress(fun=board.go_down, key='Right')
 
 screen.update()
 
