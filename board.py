@@ -18,13 +18,13 @@ class Board():
             [1, 2, 3, 4],
             [5, 6, 7, 8],
             [9, 10, 11, 12],
-            [15, 12, 14, '[]']
+            [15, 12, 14, None]
         ]
         self.completed_tiles = [
             [1, 2, 3, 4],
             [5, 6, 7, 8],
             [9, 10, 11, 12],
-            [13, 14, 15, '[]']
+            [13, 14, 15, None]
         ]
         self.void_pos = (3, 3)
         self.draw_tiles()
@@ -40,6 +40,18 @@ class Board():
 
     def go_up(self):
         up_to_void_pos = (self.void_pos[0] - 1, self.void_pos[1])
+        self.swap_with_void(up_to_void_pos)
+
+    def go_down(self):
+        up_to_void_pos = (self.void_pos[0] + 1, self.void_pos[1])
+        self.swap_with_void(up_to_void_pos)
+
+    def go_left(self):
+        up_to_void_pos = (self.void_pos[0], self.void_pos[1] - 1)
+        self.swap_with_void(up_to_void_pos)
+
+    def go_right(self):
+        up_to_void_pos = (self.void_pos[0], self.void_pos[1] + 1)
         self.swap_with_void(up_to_void_pos)
 
     def swap_with_void(self, up_to_void_pos):
